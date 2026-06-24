@@ -1,0 +1,178 @@
+﻿<Window x:Class="CyberBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CyberBot"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+
+        <!-- 
+            HOME GRID
+            This grid serves as the main landing page  of the application.
+            It contains a logo for AI , a welcome message to greet users,
+            and a navigation button to proceed to the next section.
+            Currently hidden by default.
+        -->
+        <Grid 
+            x:Name="home_grid" 
+            Visibility="Visible"
+            Background="Silver"
+            >
+
+            <!-- Logo -->
+            <Image 
+                Source="/Banner-Logo.jpg"
+                Width="300"
+                Margin="250,5,250,146"
+                />
+
+            <!-- welcome message-->
+            <TextBlock
+                Text="WELCOME TO CYBERSECURITY AWARENESS CHATBOT, I AM HERE TO HELP YOU STAY SAFE ONLINE"
+                Height="20"
+                Width="650"
+                TextAlignment="Center"
+                Margin="0,161,0,0"
+                FontFamily="Arial Rounded MT Bold"
+                />
+
+            <TextBlock
+                Text="Click proceed to continue..."
+                Height="20"
+                Width="200"
+                TextAlignment="Center"
+                Margin="0,210,0,0"
+                FontFamily="Arial Rounded MT Bold"
+                Foreground="OrangeRed"
+                />
+
+            <!-- button to continue-->
+            <Button 
+                Height="40"
+                Width="300"
+                Margin="0,270,0,0"
+                Content="Proceed"
+                Click="proceed"
+                Background="#122452"
+                Foreground="Beige"
+                />
+
+        </Grid>
+
+
+
+        <!-- 
+            USERNAME GRID
+            This grid is for prompting the user for username.
+            It contains a logo for AI, a textbox for users to enter their name,
+            and a submit button to save the username.
+            Hidden .
+        -->
+        <Grid 
+            x:Name="username_grid" 
+            Visibility="Hidden"
+            Background="Silver"
+            >
+
+            <!-- Logo -->
+            <Image 
+                Source="/Banner-Logo.jpg" 
+                Height="200"
+                Width="250"
+                Margin="0,0,0,180"
+                />
+
+            <!-- Hint message-->
+            <TextBlock
+                Text="Enter username"
+                Height="20"
+                Width="270"
+                TextAlignment="Justify"
+                Margin="0,50,0,0"
+                FontFamily="Arial Rounded MT Bold"
+                />
+
+            <!-- Enter/Prompt username-->
+            <TextBox
+                Height="40"
+                Width="270"
+                TextAlignment="Center"
+                Margin="0,105,0,0"
+                FontFamily="Arial Rounded MT Bold"
+                x:Name="usernames_input"
+                />
+
+            <!-- error message — hidden by default, shown only when username is empty -->
+            <TextBlock
+                x:Name="username_error_label"
+                Text="please enter username to continue..."
+                Height="20"
+                Width="270"
+                TextAlignment="Justify"
+                Margin="0,185,0,0"
+                Foreground="LimeGreen"
+                FontFamily="Arial Rounded MT Bold"
+                Visibility="Hidden"
+                />
+
+            <!-- button to submit name-->
+            <Button 
+                Height="40"
+                Width="270"
+                Margin="0,250,0,0"
+                Content="submit username"
+                Click="submit_name"
+                Background="#122452"
+                Foreground="GhostWhite"
+                />
+
+        </Grid>
+
+
+
+        <!-- 
+            CHAT GRID
+            This grid handles all messaging and conversation-related features of the application.
+            It contains a ListView to display chat messages, a textbox for typing questions,
+            and a submit button to send the question to the chat.
+            Starting in a hidden state.
+        -->
+        <Grid 
+            x:Name="chat_grid" 
+            Visibility="Hidden"
+            Background="Silver"
+            >
+
+            <!-- List view to show messages show messages-->
+            <ListView  
+                x:Name="chats" 
+                Height="300"
+                Margin="0,0,0,120"
+                />
+
+            <!-- TextBox to prompt questions-->
+            <TextBox
+                x:Name="question"
+                Height="50"
+                Width="480"
+                Margin="0,300,300,0"
+                />
+
+            <!-- button to submit -->
+            <Button
+                Height="50"
+                Width="280"
+                Margin="490,300,0,0"
+                Content="send "
+                Click="send"
+                Background="#122452"
+                Foreground="GhostWhite"
+                />
+
+        </Grid>
+
+    </Grid>
+</Window>
