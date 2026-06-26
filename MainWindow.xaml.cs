@@ -110,7 +110,28 @@ namespace CyberBot
             // Clear the input box
             question.Clear();
         }
-        //end for the username submit
+         private void btnActivity_Click(object sender, RoutedEventArgs e)
+ {
+     activityVisible = !activityVisible;
+
+     ActivityColumn.Width = activityVisible
+         ? new GridLength(150)
+         : new GridLength(0);
+ }
+
+    private void CloseActivity_Click(object sender, RoutedEventArgs e)
+  {
+     activityVisible = false;
+     ActivityColumn.Width = new GridLength(0);
+  }
+
+    // A clear histroy button for the activity log
+    private void ClearHistory_Click(object sender, RoutedEventArgs e)
+  {
+     ActivityLogger.Instance.Clear();
+     lstActivityLog.ItemsSource = null;
+     lstActivityLog.ItemsSource = ActivityLogger.Instance.Entries;
+  }
 
 
     }//end of class
